@@ -1,5 +1,6 @@
 package com.gongjun.tools.controller;
 
+import com.gongjun.tools.core.annotation.MyLog;
 import com.gongjun.tools.model.Test;
 import com.gongjun.tools.service.ITestService;
 import io.swagger.annotations.Api;
@@ -31,9 +32,9 @@ import java.util.List;
 public class ABCController {
     @Resource
     private ITestService service;
-
+    @MyLog("查询个数")
     @GetMapping("")
-    public String ABC() {
+    public String ABC(String a,String b) {
         List<Test> tests = this.service.selectList(null);
         System.out.println(null == tests ? null : tests.size());
         return "hello";
