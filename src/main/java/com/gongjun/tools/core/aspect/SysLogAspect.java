@@ -29,26 +29,28 @@ public class SysLogAspect {
 
     @Autowired
     private ISysLogService service;
+
     /**
      * @param []
+     * @return void
      * @description 定义切点 @Pointcut,在注解的位置切入代码
      * @author GongJun
      * @time 2019/1/17 14:59
-     * @return void
      **/
     @Pointcut("@annotation(com.gongjun.tools.core.annotation.MyLog)")
-    public void logPointCut(){
-        
+    public void logPointCut() {
+
     }
+
     /**
      * @param [joinPoint]
+     * @return void
      * @description
      * @author GongJun
      * @time 2019/1/17 15:25
-     * @return void
      **/
     @AfterReturning("logPointCut()")
-    public void saveSysLog(JoinPoint joinPoint){
+    public void saveSysLog(JoinPoint joinPoint) {
 
         System.out.println("日志开始...");
         SysLog sysLog = new SysLog();
@@ -83,7 +85,7 @@ public class SysLogAspect {
         sysLog.setUsername("gongjun");
         //获取用户ip地址
         ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-        HttpServletRequest request =  servletRequestAttributes.getRequest();
+        HttpServletRequest request = servletRequestAttributes.getRequest();
         sysLog.setIp(IPDeal.getIpAddress(request));
 
         //调用service保存SysLog实体类到数据库

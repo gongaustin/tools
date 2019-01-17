@@ -10,7 +10,7 @@ public class Test {
     /**
      *
      * */
-    @TableId(value = "id",type = IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     private int id;
 
     public int getId() {

@@ -232,6 +232,7 @@ public class Base64 {
         reverseBase64Chars['\f'] = NON_BASE_64_WHITESPACE;
         reverseBase64Chars['='] = NON_BASE_64_PADDING;
     }
+
     /**
      * This class need not be instantiated, all methods are static.
      *

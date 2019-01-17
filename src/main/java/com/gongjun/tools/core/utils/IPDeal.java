@@ -22,12 +22,13 @@ import java.net.URLConnection;
 public class IPDeal {
     /**
      * 此方法调用百度AIP来查询IP所在地域(YYR)
+     *
      * @param strIP（传入的IP地址）
      * @return
      */
     public static String getAddressByIP(String strIP) {
         try {
-            URL url = new URL("http://api.map.baidu.com/location/ip?ak=F454f8a5efe5e577997931cc01de3974&ip="+strIP);
+            URL url = new URL("http://api.map.baidu.com/location/ip?ak=F454f8a5efe5e577997931cc01de3974&ip=" + strIP);
             URLConnection conn = url.openConnection();
             BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream(), "utf-8"));
             String line = null;
@@ -38,12 +39,12 @@ public class IPDeal {
             reader.close();
             String ipAddr = result.toString();
             try {
-                JSONObject obj1= JSON.parseObject(ipAddr);
-                if("0".equals(obj1.get("status").toString())){
-                    JSONObject obj2= JSON.parseObject(obj1.get("content").toString());
-                    JSONObject obj3= JSON.parseObject(obj2.get("address_detail").toString());
+                JSONObject obj1 = JSON.parseObject(ipAddr);
+                if ("0".equals(obj1.get("status").toString())) {
+                    JSONObject obj2 = JSON.parseObject(obj1.get("content").toString());
+                    JSONObject obj3 = JSON.parseObject(obj2.get("address_detail").toString());
                     return obj3.get("city").toString();
-                }else{
+                } else {
                     return "读取失败";
                 }
             } catch (JSONException e) {
@@ -55,9 +56,10 @@ public class IPDeal {
             return "读取失败";
         }
     }
+
     /**
      * 获取客户端IP的方法
-     * */
+     */
     public static String getIpAddress(HttpServletRequest request) {
         String ip = request.getHeader("x-forwarded-for");
         if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {

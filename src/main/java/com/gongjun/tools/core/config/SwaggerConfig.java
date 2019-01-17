@@ -28,10 +28,11 @@ import java.util.List;
 public class SwaggerConfig extends WebMvcConfigurerAdapter {
     /**
      * 这个地方要重新注入一下资源文件，不然不会注入资源的，也没有注入requestHandlerMappping,相当于xml配置的
-     *  <!--swagger资源配置-->
-     *  <mvc:resources location="classpath:/META-INF/resources/" mapping="swagger-ui.html"/>
-     *  <mvc:resources location="classpath:/META-INF/resources/webjars/" mapping="/webjars/**"/>
-     *  不知道为什么，这也是spring boot的一个缺点（菜鸟觉得的）
+     * <!--swagger资源配置-->
+     * <mvc:resources location="classpath:/META-INF/resources/" mapping="swagger-ui.html"/>
+     * <mvc:resources location="classpath:/META-INF/resources/webjars/" mapping="/webjars/**"/>
+     * 不知道为什么，这也是spring boot的一个缺点（菜鸟觉得的）
+     *
      * @param registry
      */
     @Override
@@ -41,6 +42,7 @@ public class SwaggerConfig extends WebMvcConfigurerAdapter {
         registry.addResourceHandler("/webjars*")
                 .addResourceLocations("classpath:/META-INF/resources/webjars/");
     }
+
     //可以注入多个doket，也就是多个版本的api，可以在看到有三个版本groupName不能是重复的，v1和v2是ant风格匹配，配置文件
     @Bean
     public Docket api() {
@@ -70,7 +72,7 @@ public class SwaggerConfig extends WebMvcConfigurerAdapter {
         return new ApiInfoBuilder()
                 .title("test")
                 .termsOfServiceUrl("www.baidu.com")
-                .contact(new Contact("GongJun","https://github.com/gongaustin","29402674@qq.com"))
+                .contact(new Contact("GongJun", "https://github.com/gongaustin", "29402674@qq.com"))
                 .version("v0.01")
                 .build();
     }
