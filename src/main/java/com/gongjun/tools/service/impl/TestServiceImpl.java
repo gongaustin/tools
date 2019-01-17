@@ -7,7 +7,9 @@ import com.gongjun.tools.service.ITestService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-
+/**
+ * 定义业务层的bean采用@Service注解
+ * */
 @Service
 public class TestServiceImpl  extends ServiceImpl<TestMapper,Test> implements ITestService{
     @Resource
