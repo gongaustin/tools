@@ -12,7 +12,7 @@ public class TestServiceImpl  extends ServiceImpl<TestMapper,Test> implements IT
     @Autowired
     private TestMapper mapper;
     public void ss(){
-        int a = this.mapper.selectList(null)==null?0:this.mapper.selectList(null).size();
+        int a = this.mapper.selectList(null)==null?0:this.mapper.selectCount(null);
         System.out.println("a="+a);
     }
 }
