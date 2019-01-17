@@ -52,7 +52,7 @@ public class SysLogAspect {
     @AfterReturning("logPointCut()")
     public void saveSysLog(JoinPoint joinPoint) {
 
-        System.out.println("日志开始...");
+        System.out.println("***日志开始***");
         SysLog sysLog = new SysLog();
 
         //从切面织入点处通过反射机制获取织入点处的方法
@@ -90,5 +90,6 @@ public class SysLogAspect {
 
         //调用service保存SysLog实体类到数据库
         this.service.insert(sysLog);
+        System.out.println("***日志结束***");
     }
 }
