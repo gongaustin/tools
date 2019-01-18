@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  * @Date:2019/1/17
  */
 @Configuration
-public class MyInterceptor extends WebMvcConfigurerAdapter {
+public class MyInterceptorConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         /**
