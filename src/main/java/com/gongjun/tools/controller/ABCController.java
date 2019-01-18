@@ -30,7 +30,7 @@ import java.util.List;
 @RestController
 @RequestMapping("")
 @Api(value = "/", description = "测试接口")
-public class ABCController {
+public class ABCController{
     @Resource
     private ITestService service;
 
@@ -38,7 +38,7 @@ public class ABCController {
     @GetMapping("")
     public String ABC(String a, String b, Page<Test> page) {
         Page<Test> tests = this.service.selectPage(page,null);
-        System.out.println(null == tests ? null : tests.getRecords().size());
+        System.out.println(null == tests ? 0 : tests.getRecords().size());
         return JSONObject.toJSON(tests).toString();
     }
 
