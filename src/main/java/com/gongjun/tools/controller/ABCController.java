@@ -1,5 +1,7 @@
 package com.gongjun.tools.controller;
 
+import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.plugins.Page;
 import com.gongjun.tools.core.annotation.MyLog;
 import com.gongjun.tools.model.Test;
 import com.gongjun.tools.service.ITestService;
@@ -34,10 +36,10 @@ public class ABCController {
 
     @MyLog("查询个数")
     @GetMapping("")
-    public String ABC(String a, String b) {
-        List<Test> tests = this.service.selectList(null);
-        System.out.println(null == tests ? null : tests.size());
-        return "hello";
+    public String ABC(String a, String b, Page<Test> page) {
+        Page<Test> tests = this.service.selectPage(page,null);
+        System.out.println(null == tests ? null : tests.getRecords().size());
+        return JSONObject.toJSON(tests).toString();
     }
 
     /**
