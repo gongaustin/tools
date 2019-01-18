@@ -14,4 +14,8 @@ public interface TimeConstant {
     final String TIME_format = "HH:mm:ss";
     //时区
     final String TIME_ZONE = "GMT+8";
+    //一天的毫秒数
+    final int DAY_MILLIS = 24 * 60 * 60 * 1000;
+    //一小时的毫秒数
+    final int HOUR_MILLIS = 60 * 60 * 1000;
 }
