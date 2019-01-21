@@ -52,4 +52,14 @@ public class ABCController{
     public String ss(String aa, String bb) {
         return aa + bb;
     }
+
+
+
+    public static void main(String[] args) {
+        System.out.println(0.99==1);
+        System.out.println(0.99999999999999994==1);
+        System.out.println(0.99999999999999995==1);
+        System.out.println(0.99999999999999999==1);
+        System.out.println(0.99999999999999995<0.99999999999999999);
+    }
 }
