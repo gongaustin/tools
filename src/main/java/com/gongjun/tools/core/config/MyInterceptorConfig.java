@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * @Description:自定义拦截器
+ * @Description:自定义拦截器（会拦截swagger）
  * @Author:GongJun
  * @Date:2019/1/17
  */
